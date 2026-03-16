@@ -1,0 +1,16 @@
+.app-nav {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.75rem 1.5rem;
+}
+
+.app-nav a {
+  margin-right: 1.25rem;
+  font-weight: 500;
+}
+
+.app-nav a.active {
+  color: #1d4ed8;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}

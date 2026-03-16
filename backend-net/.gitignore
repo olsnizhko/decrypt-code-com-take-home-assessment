@@ -1,0 +1,12 @@
+bin/
+obj/
+.vs/
+.appdata/
+.codex-home/
+.dotnet/
+.nuget/
+NuGet/
+global.json
+
+*.user
+*.suo

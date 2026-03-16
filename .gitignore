@@ -1,0 +1,25 @@
+# Node / Angular
+node_modules/
+dist/
+.angular/
+*.log
+
+# Environment files
+.env
+.env.*
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+
+# IDE / local tooling
+.vs/
+.vscode/
+.appdata/
+.codex-home/
+
+# OS files
+.DS_Store
+Thumbs.db

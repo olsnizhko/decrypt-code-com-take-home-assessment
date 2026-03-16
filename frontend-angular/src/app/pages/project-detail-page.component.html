@@ -1,0 +1,18 @@
+@if (error) {
+  <div class="card state-card error">Error: {{ error }}</div>
+} @else if (!project) {
+  <div class="card state-card loading">Loading...</div>
+} @else {
+  <section class="page">
+    <a class="page-back-link" routerLink="/projects">&larr; Projects</a>
+    <h1 class="page-title">{{ project.name }}</h1>
+
+    <div class="card">
+      <p><strong>Status:</strong> {{ project.status }}</p>
+      <p><strong>Budget:</strong> {{ project.budgetHours }} hours</p>
+      <p><strong>Hours logged:</strong> {{ project.totalHoursLogged ?? 0 }}</p>
+      <p><strong>Organization:</strong> {{ project.organization?.name }}</p>
+      <p><strong>Dates:</strong> {{ displayDate(project.startDate) }} to {{ displayDate(project.endDate) }}</p>
+    </div>
+  </section>
+}

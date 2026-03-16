@@ -1,0 +1,28 @@
+@if (error) {
+  <div class="card state-card error">Error: {{ error }}</div>
+} @else if (list === null) {
+  <div class="card state-card loading">Loading...</div>
+} @else {
+  <section class="page">
+    <h1 class="page-title">Projects</h1>
+
+    <div class="grid grid-2">
+      @for (project of list; track project.id) {
+        <a class="card-link" [routerLink]="['/projects', project.id]">
+          <div class="card">
+            <h2>{{ project.name }}</h2>
+            <p>
+              <span [class]="'badge badge--' + getBadge(project.status)">
+                {{ project.status }}
+              </span>
+            </p>
+            <p>
+              Budget: {{ project.budgetHours }}h &middot;
+              {{ displayDate(project.startDate) }} to {{ displayDate(project.endDate) }}
+            </p>
+          </div>
+        </a>
+      }
+    </div>
+  </section>
+}

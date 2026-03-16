@@ -1,0 +1,24 @@
+@if (error) {
+  <div class="card state-card error">Error: {{ error }}</div>
+} @else if (list === null) {
+  <div class="card state-card loading">Loading...</div>
+} @else {
+  <section class="page">
+    <h1 class="page-title">Organizations</h1>
+
+    <div class="grid grid-2">
+      @for (org of list; track org.id) {
+        <a class="card-link" [routerLink]="['/organizations', org.id]">
+          <div class="card">
+            <h2>{{ org.name }}</h2>
+            <p>
+              {{ org.industry }} &middot;
+              <span [class]="'badge badge--' + org.tier">{{ org.tier }}</span>
+            </p>
+            <p>{{ org.contactEmail }}</p>
+          </div>
+        </a>
+      }
+    </div>
+  </section>
+}

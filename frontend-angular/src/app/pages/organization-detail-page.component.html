@@ -1,0 +1,38 @@
+@if (error) {
+  <div class="card state-card error">Error: {{ error }}</div>
+} @else if (!summary) {
+  <div class="card state-card loading">Loading...</div>
+} @else {
+  <section class="page">
+    <a class="page-back-link" routerLink="/organizations">&larr; Organizations</a>
+    <h1 class="page-title">{{ summary.organization.name }}</h1>
+
+    <div class="card">
+      <p><strong>Industry:</strong> {{ summary.organization.industry }}</p>
+      <p>
+        <strong>Tier:</strong>
+        <span [class]="'badge badge--' + summary.organization.tier">
+          {{ summary.organization.tier }}
+        </span>
+      </p>
+      <p><strong>Contact:</strong> {{ summary.organization.contactEmail }}</p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h2>Projects</h2>
+        <p class="summary-value">{{ summary.projectCount }}</p>
+      </div>
+
+      <div class="card">
+        <h2>Users</h2>
+        <p class="summary-value">{{ summary.userCount }}</p>
+      </div>
+
+      <div class="card">
+        <h2>Total invoiced</h2>
+        <p class="summary-value">{{ summary.currency }} {{ formatNumber(summary.totalInvoiced) }}</p>
+      </div>
+    </div>
+  </section>
+}

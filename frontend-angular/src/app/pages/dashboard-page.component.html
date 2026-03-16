@@ -1,0 +1,36 @@
+@if (error) {
+  <div class="card state-card error">Error: {{ error }}</div>
+} @else if (!data) {
+  <div class="card state-card loading">Loading dashboard...</div>
+} @else {
+  <section class="page">
+    <h1 class="page-title">Dashboard</h1>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h2>Organizations</h2>
+        <p class="summary-value">{{ data.totalOrganizations }}</p>
+      </div>
+
+      <div class="card">
+        <h2>Users</h2>
+        <p class="summary-value">{{ data.totalUsers }}</p>
+      </div>
+
+      <div class="card">
+        <h2>Projects</h2>
+        <p class="summary-value">{{ data.totalProjects }} ({{ data.activeProjects }} active)</p>
+      </div>
+
+      <div class="card">
+        <h2>Time entries</h2>
+        <p class="summary-value">{{ data.totalTimeEntries }}</p>
+      </div>
+
+      <div class="card">
+        <h2>Total invoiced</h2>
+        <p class="summary-value">{{ '$' + formatNumber(data.totalInvoiced) }}</p>
+      </div>
+    </div>
+  </section>
+}
